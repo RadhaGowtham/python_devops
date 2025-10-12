@@ -1,0 +1,11 @@
+Generally we have two types of programming languages:
+1. static type programming languages:
+ex: Go,C .,
+# in this languages we have define the variables using datatypes
+int a = 19
+2. Dynamic type programming languages:
+ex: python
+# in this languages we no need define the variables using datatypes, 
+we can define the variables directly
+ex: a = 19
+    name = "radha"
