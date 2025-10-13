@@ -290,6 +290,32 @@ Modules
 
 A module is a Python script containing Python code. It can define functions, classes, and variables that can be used in other Python scripts. Modules help organize and modularize your code, making it more maintainable.
 
+# linear way of writing code as below:
+    ex:   num1 = 10
+          num2 = 15
+      addition = num1 + num2
+      print (addition)
+      sub = num1 - num2
+      print (substraction)
+# structured and modular way of writing code
+ex:     num1 = 10
+        num2 = 15
+    def addition():
+        add = num1 + num2
+        print (add)
+    def substraction():
+        sub = num1 - num2
+         print (sub)
+  # After defining function we need to explicitly invoke or call the function with function names then only the function works
+    addition()
+    sunbstraction()
+
+Advantages: the code have a popular structure and modular 
+
+        
+    
+
+
 Example:
 
 Suppose you have a Python file named my_module.py:
