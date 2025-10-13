@@ -311,6 +311,9 @@ ex:     num1 = 10
     sunbstraction()
 
 Advantages: the code have a popular structure and modular 
+    1. readability
+    2. re-usability (modularity)
+    3. debugging
 
         
     
