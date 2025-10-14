@@ -516,7 +516,7 @@ ex:
 
 
 # Arithmetic Operations in Python
-
+--------------------------------------
 ## Introduction
 
 Arithmetic operators in Python allow you to perform basic mathematical calculations on numeric values. These operators include addition, subtraction, multiplication, division, and more.
@@ -526,10 +526,13 @@ Arithmetic operators in Python allow you to perform basic mathematical calculati
 1. **Addition (+):** Adds two numbers.
 2. **Subtraction (-):** Subtracts the right operand from the left operand.
 3. **Multiplication (*):** Multiplies two numbers.
-4. **Division (/):** Divides the left operand by the right operand (results in a floating-point number).
-5. **Floor Division (//):** Divides the left operand by the right operand and rounds down to the nearest whole number.
-6. **Modulus (%):** Returns the remainder of the division of the left operand by the right operand.
+4. **Division (/):** Divides the left operand by the right operand (results in a floating-point number). ex: 2/3 = 1.5
+5. **Floor Division (//):** Divides the left operand by the right operand and rounds down to the nearest whole number. ex: 2/3 = 1 (it will not output the decimal outputs)
+6. **Modulus (%):** Returns the "remainder" of the division of the left operand by the right operand.
 7. **Exponentiation (**):** Raises the left operand to the power of the right operand.
+# For simple arithemtic operations, we will not write python code, run "python" on terminal there is a command prompt that pops up for us. 
+>>>> 16%13 = 3
+# ro come out of prompt : ctrl+d or exit()
 
 ## Examples
 
@@ -562,6 +565,10 @@ Assignment operators in Python are used to assign values to variables. They incl
 1. **Basic Assignment (=):** Assigns a value to a variable.
 
 2. **Addition Assignment (+=):** Adds the right operand to the left operand and assigns the result to the left operand.
+ex:type: python
+    >>>> a = 10
+    >>>> a += 2
+    >>>> print(a)
 
 3. **Subtraction Assignment (-=):** Subtracts the right operand from the left operand and assigns the result to the left operand.
 
@@ -630,14 +637,22 @@ result = x | y  # Result: 1111 (Decimal: 15)
 ## Introduction
 
 Identity operators in Python are used to compare the memory locations of two objects to determine if they are the same object or not. The two identity operators are "is" and "is not."
-
+# it returns the output as boolen(true or false)
 ## List of Identity Operators
 
 1. **is:** Returns `True` if both operands refer to the same object.
 2. **is not:** Returns `True` if both operands refer to different objects.
 
 ### Examples
+>>>> a =10
+>>>> b = 29
+>>>> a is b
+False 
 
+>>>> a =10
+>>>> b = 10
+>>>> a is not b
+False 
 #### is Operator
 
 ```python
