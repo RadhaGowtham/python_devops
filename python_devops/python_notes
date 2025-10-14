@@ -457,6 +457,64 @@ pip list                       # Show installed packages
 pip freeze                     # Output installed packages in requirements format
 pip show package_name          # Show info about an installed package
 
+## Command line arguments and environment variables:
+---------------------------------------------------
+ex: 
+calculator.py
+    def addition(num1, num2):
+        add = num1 + num2
+        return add
+  
+    def substraction(num1, num2):
+        sub = num1 - num2
+         return sub
+    print(addition(10, 15)) # values are hardcoded
+    print(substraction(20, 15)) # values are hardcoded
+# In the above program the values are hardcoded, and if someone want to pass new values they have to modfiy the values in the source code.
+# This is not a good practice, and we have to externalize the vlaues, so we are using command line arguments and env variables
+# Command line arguments are used to pass values to the source code/program. and the program will takes arguments as an input to the program
+# For passing values/inputs to the program, we have to use the modules and as we know we can install/download modules from PiPY or by default few modules were installed during python installation(inbuilt module)
+# We use "sys" module for passing and read the command line arguments to our program  
+# sys is an inbuilt module and we have to import the module to use inside the program
+ex: python calculator.py 2 addition 5
+Here arg1 is 2, arg2 is addition and arg3 is 5
+and in progran we have to declare as below
+sys.argv[1] 
+sys.argv[2] 
+sys.argv[3] 
+
+ex:
+calculator.py
+impot sys
+    def addition(num1, num2):
+        add = num1 + num2
+        return add
+  
+    def subtraction(num1, num2):
+        sub = num1 - num2
+         return sub
+    num1 = float(sys.argv[1])               # even if the user pass input as an integer "2", by defaut the python consider as a string, so convert it into integer or float ex:   num1 = int(sys.argv[1])
+    operation = sys.argv[2]    
+    num2 = float(sys.argv[1])
+if operation == "addition":
+    output = addition(num1, num2)
+    print(output) 
+if operation == "subtraction":
+    output = subtraction(num1, num2)
+    print(output) 
+
+# env variables:
+While writing a python program we need to deal with sensitive info like passwords, api keys, tokens and cert, so we use env variables 
+# we have lot of inbuilt varaibles in python, to get/list run "env" command
+# we can create user difned varables as below: and run the same in terminal
+export password="Radha"
+# to read the env variable in program, we have to import a module called "os"
+os.getenv("password")
+ex:
+  import os
+  print(os.getenv("password"))
+
+
 # Arithmetic Operations in Python
 
 ## Introduction
