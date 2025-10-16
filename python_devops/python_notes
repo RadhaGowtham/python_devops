@@ -1456,3 +1456,94 @@ DevOps engineers often use "while" loops in various real-time use cases to autom
 
 
    day10.,
+
+---------------Practice--------------------------
+
+# To read inputs from the user we can use command line arguments and env variables
+## and also we have "input" to read the values/inputs from users during runtime 
+ex: echo/read in shell and register in ansible
+ex:
+#CLA
+# number = sys.argv[1]
+number = input("please provide the a number: ")
+print(number)
+
+EX:1
+import os
+folders = input("Please provide the folder names with spaces between: ").split()
+# split() function is used to convert the input into list
+
+for folder in folders:
+ # Suppose a user given a wrong folder, then how to handle the error(error handlings/exception) 
+    try:
+        files = os.listdir(folder)
+    except FileNotFoundError: 
+        print("Please provide a valid folder name, looks like folder not exits:", folder)
+        break  # to break/terminates execution
+    except PermissionError: 
+         print("No access to this folder:" + folder)
+         break  
+# We will need the OS module b/c os is the module than can talk to the Operating system
+# in os module there is a function called os.listdir() simliar to ls in shell
+    print("listing files in a folder -" + folder)
+# Here we are useing concatination " + folder" to print the folder name
+# Now i dont want to print the files as an list and want to print files in an order
+    for file in files:
+        print(file)
+
+O/P:
+$ python practice_test.py 
+Please provide the folder names with spaces between: /xyz /tmp
+Please provide a valid folder name, looks like folder not exits: /xyz
+
+EX2:
+
+import os
+
+# Get folder names as a list
+folders = input("Please provide the folder names with spaces between: ").split()
+
+for folder in folders:
+    try:
+        # Try to list the files in the folder
+        files = os.listdir(folder)
+    except FileNotFoundError:
+        print("Please provide a valid folder name. Looks like folder does not exist:", folder)
+        continue  # Continue to the next folder
+    except PermissionError:
+        print("No access to this folder:", folder)
+        continue
+
+    print("Listing files in folder -", folder)
+
+    # Sort files alphabetically
+    files.sort()
+
+    # Print each file on a new line
+    for file in files:
+        print(file)
+
+O/P:
+$ python practice-test1.py 
+Please provide the folder names with spaces between: /xyz /tmp
+Please provide a valid folder name. Looks like folder does not exist: /xyz
+Listing files in folder - /tmp
+codespaces_logs
+dockerd.log
+sshd.log
+storage_version.txt
+vscode-git-016415b6a4.sock
+vscode-ipc-443c229e-335f-454a-8bf7-8e10cf6b1204.sock
+vscode-ipc-a2d498f0-9955-417c-b6eb-d7a0859cfbeb.sock
+
+
+
+
+
+
+
+
+
+
+
+
