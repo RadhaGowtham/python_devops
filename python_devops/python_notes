@@ -273,6 +273,7 @@ In this example, we use variables to store and manipulate configuration data for
 
 Python Functions, Modules and Packages
 1. Differences Between Functions, Modules, and Packages
+------------------------------------------------------------
 Functions
 
 A function in Python is a block of code that performs a specific task. Functions are defined using the def keyword and can take inputs, called arguments. They are a way to encapsulate and reuse code.
@@ -1536,6 +1537,28 @@ vscode-git-016415b6a4.sock
 vscode-ipc-443c229e-335f-454a-8bf7-8e10cf6b1204.sock
 vscode-ipc-a2d498f0-9955-417c-b6eb-d7a0859cfbeb.sock
 
+Modular way: For above example
+-------------------------------
+import os
+
+def list_files_in_folders(folders):
+    for folder in folders:
+        try:
+            files = os.listdir(folder)
+            print("Listing files in folder:", folder)
+            for file in files:
+                print(file)
+        except FileNotFoundError:
+            print("Please provide a valid folder name. The folder does not exist: " + folder)
+            continue
+
+def main():
+    folder_input = input("Please provide the folder names (separated by spaces): ")
+    folder_names = folder_input.split()
+    list_files_in_folders(folder_names)
+
+if __name__ == "__main__":
+    main()
 
 
 
