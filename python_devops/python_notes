@@ -1705,7 +1705,7 @@ is_superset = set1.issuperset(set2)  # Checking if set1 is a superset of set2
 ```
 
 ### Practice Exercises and Examples
-
+--------------------------------------------
 #### Example: Managing a Dictionary of Server Configurations and Optimizing Retrieval
 
 ##### Scenario:
@@ -1731,7 +1731,23 @@ server_name = 'server2'
 status = get_server_status(server_name)
 print(f"{server_name} status: {status}")
 ```
+--------------------------
+ex:
+# Server configurations dictionary
+server_config = {
+    'server1': {'ip': '192.168.1.1', 'port': 8080, 'status': 'active'},
+    'server2': {'ip': '192.168.1.2', 'port': 8000, 'status': 'inactive'},
+    'server3': {'ip': '192.168.1.3', 'port': 9000, 'status': 'active'}
+}
 
+# Retrieving information
+def get_server_status(server_name):
+    return server_config.get(server_name, {}).get('status', 'Server not found')
+
+# Example usage
+server_name = 'server2'
+status = get_server_status(server_name)
+print(f"{server_name} status: {status}")
 
 # Lists vs. Sets
 ------------------------------------------------
@@ -1825,6 +1841,91 @@ if 3 in my_set:
   - Order doesn't matter.
   - You want to ensure unique elements.
   - You need to perform set operations like union, intersection, or difference.
+
+
+##################### File Operations ######################
+# read operations and write operations: We have to use an inbuilt function called " with open()"
+## To open a file "open()" and this open function takes two inputs 1. path and file name 2. read/write operations(To read give "r" or to write give "w")
+syntax: with open("/opt/radha.txt", "r"):
+        with open("/opt/radha.txt", "w"):
+
+Task: update server.conf file when max connections on the server reaches max 200 to 500
+## server.conf
+# Server Configuration File
+
+# Network Settings
+PORT = 8080
+MAX_CONNECTIONS=600
+TIMEOUT = 30
+
+# Security Settings
+SSL_ENABLED = true
+SSL_CERT = /path/to/certificate.pem
+
+# Logging Settings
+LOG_LEVEL = INFO
+LOG_FILE = /var/log/server.log
+
+# Other Settings
+ENABLE_FEATURE_X = true
+
+
+
+## Algorithm:
+1. open the file in read mode
+2. store all the lines of a file in a variable or list
+3. open the file in write mode
+4. update the max connection in a file(MAX_CONNECTIONS)
+
+## update_server.py
+def upadte_server_conf(file_path, key, value):
+    with open("file_path", "r") as file:
+        lines = file.readlines()
+    with open("file_path", "w") as file:
+        for line in lines:
+            if key in line:
+                file.write("key" + "=" + value + "/n")
+            else:
+                file.write(line)
+upadte_server_conf("sever.conf", "MAX_CONNECTIONS" , "1000")
+
+
+ex: 
+def update_server_config(file_path, key, value):
+    # Read the existing content of the server configuration file
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+
+    # Update the configuration value for the specified key
+    with open(file_path, 'w') as file:
+        for line in lines:
+            # Check if the line starts with the specified key
+            if key in line:
+                # Update the line with the new value
+                file.write(key + "=" + value + "\n")
+            else:
+                # Keep the existing line as it is
+                file.write(line)
+
+# Path to the server configuration file
+server_config_file = 'server.conf'
+
+# Key and new value for updating the server configuration
+key_to_update = 'MAX_CONNECTIONS'
+new_value = '600'  # New maximum connections allowed
+
+# Update the server configuration file
+update_server_config(server_config_file, key_to_update, new_value)
+
+
+
+
+
+
+
+
+     
+
 
 
 
