@@ -1962,6 +1962,15 @@ response = client.create_bucket(
 )
 
 # Lambda functions using boto3:
+1. Lambda functions for cloud cost optimization (it is the one of the primary responsebility of DEVOPS)
+
+# lambda belongs to compute(as ec2 also belongs to compute family) family and solves the promblem of serverless
+# As ec2 will be managed by AWS but we have to be responsible for launch configurations(RAM,storage)
+but lambda will be completely managed by AWS, like assigning resources(RAM,storage) and once the task is completed, AWS will automatically tear down the instances(scale up/scale down instances)
+so it is called serverless, as no need to take care of servers in lambda
+3. when we create an ec2 instance we will get an public/private ip address but in case of lambda we wnot get any ip and even we dont know where the server is located
+
+
 
 
 
