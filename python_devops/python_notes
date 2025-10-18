@@ -1918,7 +1918,50 @@ new_value = '600'  # New maximum connections allowed
 update_server_config(server_config_file, key_to_update, new_value)
 
 
+## Boto3
+-----------------
+# boto3 is a python package that is used to interact with aws
+# AWS automation with boto3
+# managing aws services like ec2,s3......
+# We can use request module to make an api call to interact with aws but it aws has 100's of api, so we have to write large no of code lines
+# using boto3 module we can interact with all of aws services so with less no. of code lines
+# as we have awscli , CFT, terraform to automate infrastructure in aws cloud then why we have to use Boto3(python)
+  # awscli and python(boto3)             
+    1. uses scripting
+    2. using scripting we can perform quick actions
+      ex: aws s3 ls
+    3. we can use awscli for quick action instead of boto3 but the boto3(python) is used in serverless (Lambda) so using lambda we can perform cloud cost optimization,monitoring aws resources and sending notifications
+       for this serverless programs there is no option called scripting(awscli), we have to use python(boto3)
+  # CFT and terraform
+    1. uses templating language
+    2. using scripting we can't perform quick actions
+Steps to AWS automation with boto3:
+-----------------------------------
+Here we have to download awscli and configure aws credentials to authenticate with AWS - which is the easiest way 
+we can authenicate to aws using python also but ut is bit complex
 
+In github codespaces> goto search and type "> add dev container configuration file and click on it" and now click on "modify active configuration" and now search for "aws cli devcontainer"
+> Authenticate with AWS
+# aws configure
+
+> install module "boto3"
+# pip install boto3 or pip3 install boto3
+
+> import boto3 module
+# import boto3
+> To craete a s3 bucket, goto the boto3 documentation. goto available services and select and click on s3 and create client and search for create a bucket
+
+> create a client for s3, ec2 or any aws service the below is the common syntax
+import boto3
+client = boto3.client('s3') # client = boto3.client('ec2') # using this client we can talk to s3 api
+or 
+client = boto3.resource('s3') -------> this will not support for new aws services
+# create a bucket
+response = client.create_bucket(
+    Bucket='Radha_boto3'
+)
+
+# Lambda functions using boto3:
 
 
 
