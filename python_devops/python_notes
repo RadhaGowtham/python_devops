@@ -1994,6 +1994,74 @@ so it is called serverless, as no need to take care of servers in lambda
 
 
 
+To list files in a directory:
+import os
+# os.listdir("directory_name")
+To find the file exists or not
+import os
+# os.path.exists("filename")
+To find the size of the file
+import os
+# os.path.getsize("filename")
+Run shell commands using subprocess
+# import subprocess
+# output = subprocess.check_output(["ls", "-l"])
+------------------
+# Parse log file & extract error lines
+with open("path/filename","r") as file:
+lines = file.readlines()
+for line in lines:
+if "ERROR" in line:
+ print(line)
+
+# to read file:
+with open("log.txt") as f:
+    data = f.read()
+# to write a file:
+with open("out.txt", "w") as f:
+    f.write("hello")
+
+How to monitor CPU/memory
+import psutil
+psutil.cpu_percent()
+
+How do you parse JSON
+import json
+data = json.load(open("data.json"))
+
+Convert dict to JSON
+json.dumps({"a": 1})
+
+
+--------------
+# SSH into server
+import paramiko
+
+ssh = paramiko.SSHClient()
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+ssh.connect("host", username="u", password="p")
+stdin, stdout, stderr = ssh.exec_command("ls -l")
+print(stdout.read().decode())
+-------------
+# Use boto3 to list S3 buckets
+import boto3
+s3 = boto3.client("s3")
+for bucket in s3.list_buckets()["Buckets"]:
+    print(bucket["Name"])
+
+# list ec2 instance:
+import boto3
+ec2 = boto3.client("ec2")
+ec2.describe_instances()
+
+-------------------
+# Make REST API calls
+import requests
+r = requests.get("https://api.github.com")
+------------------
+How do you call Jenkins API using Python
+requests.post("http://jenkins/job/build", auth=("user", "token"))
+
 
 
 
