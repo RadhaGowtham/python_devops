@@ -10,6 +10,12 @@ we can define the variables directly without datatypes
 ex: a = 19
     name = "radha"
 
+
+Python is a high-level, interpreted programming language known for its simplicity and readability. In scripting,
+Python is mainly used to automate repetitive tasks, handle files, process data, and interact with system resources.
+Because of its rich standard library and cross-platform support, it is widely used for automation and backend scripting.
+
+
 python is a Dynamic type programming language and it supports mutiple predefined or builtin functions/modules.
 
 
