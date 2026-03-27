@@ -2178,7 +2178,70 @@ print(datetime.now())
 requests for API automation, boto3 for AWS resource management, psutil for monitoring, logging for production logs, and yaml/json for configuration handling.”
 
 
+import os
+import sys
+import psutil
+import requests
+import logging
+import subprocess
+import json
+from datetime import datetime
 
+# logging setup
+logging.basicConfig(filename="devops.log", level=logging.INFO)
+
+# system health
+def system_health():
+    cpu = psutil.cpu_percent()
+    mem = psutil.virtual_memory().percent
+    disk = psutil.disk_usage('/').percent
+
+    print(f"CPU: {cpu}%, Memory: {mem}%, Disk: {disk}%")
+    logging.info(f"Health checked at {datetime.now()}")
+
+# API check
+def api_check(url):
+    try:
+        res = requests.get(url)
+        print(f"Status: {res.status_code}")
+        logging.info(f"API {url} status {res.status_code}")
+    except Exception as e:
+        logging.error(str(e))
+
+# log parser
+def log_parser(file):
+    with open(file) as f:
+        for line in f:
+            if "ERROR" in line:
+                print(line)
+
+# run shell command
+def run_command(cmd):
+    result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    print(result.stdout)
+
+# main
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python script.py <action>")
+        sys.exit()
+
+    action = sys.argv[1]
+
+    if action == "health":
+        system_health()
+
+    elif action == "api":
+        api_check(sys.argv[2])
+
+    elif action == "log":
+        log_parser(sys.argv[2])
+
+    elif action == "cmd":
+        run_command(sys.argv[2])
+
+    else:
+        print("Invalid action")
 
 
 
