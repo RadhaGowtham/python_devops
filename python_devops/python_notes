@@ -2069,6 +2069,121 @@ How do you call Jenkins API using Python
 requests.post("http://jenkins/job/build", auth=("user", "token"))
 
 
+*************************************************************************
+sys = system and os = operating system:
+1. os.getenv("variable") # export variable = value
+2. os.listdir("folder name")
+3. os.path.exists(file name)
+4.os.path.getsize(file name)
+print(os.getcwd())          # current directory
+print(os.listdir())         # list files
+print(os.environ.get("HOME"))  # env variable
+
+subprocess: Run shell/Linux commands # Used to Run kubectl, docker, df -h 
+-----------
+import subprocess
+result = subprocess.run(["ls", "-l"], capture_output=True, text=True)
+print(result.stdout)
+
+psutil:
+---------
+System monitoring: CPU, memory, disk usage
+import psutil
+print(psutil.cpu_percent())
+print(psutil.virtual_memory())
+
+shutil: File operations (advanced) #Copy, move, delete directories
+-------
+import shutil
+shutil.copy("a.txt", "b.txt")
+
+File Handling Modules:
+----------------------
+Read/write files
+with open("file.txt", "r") as f:
+    data = f.read()
+with open("file.txt", "w") as f:
+data = f.write()
+
+pathlib: Handle paths cleanly
+------
+from pathlib import Path
+p = Path("file.txt")
+print(p.exists())
+
+Networking & API Modules: 
+Call APIs
+🔧 Use cases:
+Health checks
+Monitoring services
+
+import requests
+res = requests.get("https://api.github.com")
+print(res.status_code)
+
+socket:Low-level networking
+-----------------------------
+import socket
+print(socket.gethostname())
+
+boto3:
+--------
+EC2, S3, IAM automation
+import boto3
+
+ec2 = boto3.client('ec2')
+response = ec2.describe_instances()
+print(response)
+
+Handle JSON (API responses)
+-------------------------
+import json
+data = '{"name": "John"}'
+print(json.loads(data))
+
+Read YAML files (Kubernetes, Ansible)
+-------------------------------------
+import yaml
+with open("file.yaml") as f:
+    data = yaml.safe_load(f)
+
+re (Regex)
+-----------
+✅ What it does:
+Pattern matching
+
+🔧 Use cases:
+Log parsing
+
+import re
+text = "Error: failed"
+print(re.findall("Error", text))
+
+Production-level logs
+-----------------------
+🔧 Why not print?
+log levels (INFO, ERROR)
+write to files
+
+import logging
+logging.basicConfig(filename="app.log", level=logging.INFO)
+logging.info("Started")
+
+Time handling
+--------------
+from datetime import datetime
+print(datetime.now())
+
+“I’ve used modules like os, subprocess for system operations,
+requests for API automation, boto3 for AWS resource management, psutil for monitoring, logging for production logs, and yaml/json for configuration handling.”
+
+
+
+
+
+
+
+
 
 
 
